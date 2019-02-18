@@ -15,7 +15,7 @@ module Spree
       private
 
       def authorize
-        authorize! :manage, :vendor_settings
+        authorize! :manage, "vendor_settings"
       end
 
       def load_vendor
