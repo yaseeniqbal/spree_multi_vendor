@@ -21,10 +21,10 @@ module Spree
 
     has_many :orders
     has_many :products
-    has_many :shipping_methods, class_name: Spree::ShippingMethod
-    has_many :stock_locations, class_name: Spree::StockLocation
+    has_many :shipping_methods, class_name: "Spree::ShippingMethod"
+    has_many :stock_locations, class_name: 'Spree::StockLocation'
     has_many :users, through: :vendor_users
-    has_many :vendor_users, class_name: Spree::VendorUser
+    has_many :vendor_users, class_name: 'Spree::VendorUser'
 
     after_create :create_stock_location
 
