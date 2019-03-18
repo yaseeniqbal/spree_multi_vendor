@@ -12,6 +12,33 @@
     <%= f.label :contact_us %>
     <%= f.text_area :contact_us, class: 'form-control' %>
   <% end %>
+
+  <%= f.field_container :t_distance do %>
+    <%= f.label :t_distance %>
+    <%= f.number_field :t_distance, class: 'form-control' %>
+  <% end %>
+
+  <%= f.field_container :address do %>
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control' %>
+  <% end %>
+
+  <%= f.field_container :lat do %>
+    <%= f.label :lat %>
+    <%= f.number_field :lat, class: 'form-control' %>
+  <% end %>
+
+  <%= f.field_container :lng do %>
+    <%= f.label :lng %>
+    <%= f.number_field :lng, class: 'form-control' %>
+  <% end %>
+
+  <%= f.field_container :is_appointable do %>
+    <%= f.label :is_appointable %>
+    <%= f.check_box :is_appointable, class: 'form-control' %>
+  <% end %>
+
+
   <%= f.field_container :state do %>
     <%= f.label :state %>
     <%= f.select :state,
