@@ -10,3 +10,21 @@ Deface::Override.new(
           <% end %>
         HTML
 )
+
+Deface::Override.new(
+  virtual_path: 'spree/admin/products/_form',
+  name: 'product status dropdown',
+  insert_before: 'div[data-hook="admin_product_form_price"]',
+  text: <<-HTML
+          <% if can? :manage, ::Spree::Product
+            <div data-hook="admin_product_form_status">
+              <%= f.field_container :status, class: ['form-group'] do %>
+                <%= f.label :status, Spree.t(:status) %>
+                <%= select_tag "product[status]", options_for_select(::Spree::Product.statuses.map{|k,v| [k.humanize,k] },f.object.status), class: 'select2' %>
+                <%= f.error_message_on :status %>
+              <% end %>
+            </div>
+          <%end%>
+        HTML
+)
+

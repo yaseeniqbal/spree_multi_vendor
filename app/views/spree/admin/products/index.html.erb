@@ -23,11 +23,19 @@
             <%= f.text_field :variants_including_master_sku_cont, size: 15, class: "form-control" %>
           </div>
         </div>
-        <% if current_spree_user.respond_to?(:has_spree_role?) && current_spree_user.has_spree_role?(:admin) %>
+        <% if can?(:manage,'Spree::Product'.constantize)%>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :vendor_name_cont, Spree.t(:vendor_name) %>
               <%= f.text_field :vendor_name_cont, class: "form-control" %>
+            </div>
+          </div>
+        <% end %>
+        <% if can?(:manage,'Spree::Product'.constantize)%>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :status_eq, Spree.t(:status) %>
+              <%= select_tag "q[status_eq]", options_for_select(::Spree::Product.statuses.map{|k,v| [k.humanize,k] },f.object.status), class: 'select2' %>
             </div>
           </div>
         <% end %>
