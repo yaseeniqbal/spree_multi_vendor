@@ -3,11 +3,13 @@ Deface::Override.new(
   name: 'Enable vendors to manage product master price',
   replace: 'div[data-hook="admin_product_form_price"]',
   text: <<-HTML
+         <div data-hook="admin_product_form_price">
           <%= f.field_container :price, class: ['form-group'] do %>
             <%= f.label :price, raw(Spree.t(:master_price) + content_tag(:span, ' *', class: "required")) %>
             <%= f.text_field :price, value: number_to_currency(@product.price, unit: ''), class: 'form-control', disabled: (cannot? :update, Spree::Price) %>
             <%= f.error_message_on :price %>
           <% end %>
+         </div>
         HTML
 )
 
@@ -16,7 +18,6 @@ Deface::Override.new(
   name: 'product status dropdown',
   insert_before: 'div[data-hook="admin_product_form_price"]',
   text: <<-HTML
-          <% if can? :manage, ::Spree::Product
             <div data-hook="admin_product_form_status">
               <%= f.field_container :status, class: ['form-group'] do %>
                 <%= f.label :status, Spree.t(:status) %>
@@ -24,7 +25,6 @@ Deface::Override.new(
                 <%= f.error_message_on :status %>
               <% end %>
             </div>
-          <%end%>
         HTML
 )
 
