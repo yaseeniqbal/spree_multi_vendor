@@ -18,6 +18,8 @@ module Spree
       has_many :vendor_users
     end
 
+
+    has_one_attached :logo_image # one-to-one
     has_many :users, through: :vendor_users
 
     after_create :create_stock_location
