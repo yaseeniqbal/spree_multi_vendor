@@ -38,6 +38,17 @@
     <%= f.check_box :is_appointable, class: 'form-control' %>
   <% end %>
 
+  <%= f.field_container :logo_image do %>
+    <%= f.label :logo %>
+    <%= f.file_field :logo_image , class: 'form-control' %>
+  <% end %>
+  <br>
+   <br>
+  <% if @vendor.logo_image.attached? %>
+    <%= image_tag(main_app.url_for(@vendor.logo_image.variant(resize: "75x75")))  %>
+  <% end %>
+  <br>
+
 
   <%= f.field_container :state do %>
     <%= f.label :state %>
