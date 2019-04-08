@@ -19,7 +19,7 @@ Deface::Override.new(
   insert_before: 'div[data-hook="admin_product_form_price"]',
   text: <<-HTML
             <div data-hook="admin_product_form_status">
-              <% if can? :manage, Spree::Product %>
+              <% if current_spree_user.respond_to?(:has_spree_role?) && current_spree_user.has_spree_role?(:admin) %>
                 <%= f.field_container :status, class: ['form-group'] do %>
                         <%= f.label :status, Spree.t(:status) %>
                         <%= select_tag "product[status]", options_for_select(::Spree::Product.statuses.map{|k,v| [k.humanize,k] },f.object.status), class: 'select2' %>
