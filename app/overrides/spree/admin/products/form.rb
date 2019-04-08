@@ -20,10 +20,11 @@ Deface::Override.new(
   text: <<-HTML
             <div data-hook="admin_product_form_status">
               <% if can? :manage, Spree::Product %>
-              <%= f.field_container :status, class: ['form-group'] do %>
-                <%= f.label :status, Spree.t(:status) %>
-                <%= select_tag "product[status]", options_for_select(::Spree::Product.statuses.map{|k,v| [k.humanize,k] },f.object.status), class: 'select2' %>
-                <%= f.error_message_on :status %>
+                <%= f.field_container :status, class: ['form-group'] do %>
+                        <%= f.label :status, Spree.t(:status) %>
+                        <%= select_tag "product[status]", options_for_select(::Spree::Product.statuses.map{|k,v| [k.humanize,k] },f.object.status), class: 'select2' %>
+                        <%= f.error_message_on :status %>
+                <% end %>
               <% else %>
                  <p>Product is : <%= @product.status%></p>
               <% end %>
