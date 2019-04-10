@@ -1,4 +1,6 @@
 <%= render partial: 'spree/shared/error_messages', locals: { target: @vendor } %>
+
+
 <div class="form-group">
   <%= f.field_container :name do %>
     <%= f.label :name %>
@@ -10,11 +12,11 @@
   <% end %>
   <%= f.field_container :contact_us do %>
     <%= f.label :contact_us %>
-    <%= f.text_area :contact_us, class: 'form-control' %>
+    <%= f.number_field :contact_us, class: 'form-control' %>
   <% end %>
 
-  <%= f.field_container :t_distance do %>
-    <%= f.label :t_distance %>
+  <%= f.field_container :travel_distance do %>
+    <%= f.label :travel_distance %>
     <%= f.number_field :t_distance, class: 'form-control' %>
   <% end %>
 
@@ -42,7 +44,8 @@
     <%= f.label :logo %>
     <%= f.file_field :logo_image , class: 'form-control' %>
   <% end %>
-  <br>
+
+    <br>
    <br>
   <% if @vendor.logo_image.attached? %>
     <%= image_tag(main_app.url_for(@vendor.logo_image.variant(resize: "75x75")))  %>
@@ -50,10 +53,124 @@
   <br>
 
 
-  <%= f.field_container :state do %>
-    <%= f.label :state %>
-    <%= f.select :state,
-      options_for_select(Spree::Vendor.state_machines[:state].states.collect { |s| [Spree.t("vendor_states.#{s.name}"), s.value] }, selected: @vendor.state),
-      {}, class: 'select2' %>
-  <% end %>
+
+
+  <div class="col-md-6">
+    <%= f.field_container :email do %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+    <% end %>
+
+    <%= f.field_container :speciality do %>
+      <%= f.label :speciality %>
+      <%= f.text_field :speciality, class: 'form-control' %>
+    <% end %>
+
+
+    <%= f.field_container :google_address_url do %>
+      <%= f.label :google_address_url %>
+      <%= f.text_field :google_address_url, class: 'form-control' %>
+    <% end %>
+
+  </div>
+
+
+  <div class="col-md-6">
+
+    <%= f.field_container :fb_lnk do %>
+      <%= f.label :fb_lnk %>
+      <%= f.text_field :fb_lnk, class: 'form-control' %>
+    <% end %>
+
+
+    <%= f.field_container :pintrest_lnk do %>
+        <%= f.label :pintrest_lnk %>
+        <%= f.text_field :pintrest_lnk, class: 'form-control' %>
+      <% end %>
+
+    <%= f.field_container :twitter_lnk do %>
+        <%= f.label :twitter_lnk %>
+        <%= f.text_field :twitter_lnk, class: 'form-control' %>
+      <% end %>
+
+    <%= f.field_container :whatsapp_lnk do %>
+        <%= f.label :whatsapp_lnk %>
+        <%= f.text_field :whatsapp_lnk, class: 'form-control' %>
+      <% end %>
+
+
+  </div>
+
+
+  <br>
+  <div class="col-md-6">
+
+    <%= f.field_container :opn_hrs do %>
+      <%= f.label :opn_hrs %>
+      <%= f.text_field :opn_hrs, class: 'form-control' %>
+    <% end %>
+
+     <%= f.field_container :mon_hrs do %>
+      <%= f.label :mon_hrs %>
+      <%= f.text_field :mon_hrs, class: 'form-control' %>
+    <% end %>
+
+     <%= f.field_container :tue_hrs do %>
+      <%= f.label :tue_hrs %>
+      <%= f.text_field :tue_hrs, class: 'form-control' %>
+    <% end %>
+
+     <%= f.field_container :wed_hrs do %>
+      <%= f.label :wed_hrs %>
+      <%= f.text_field :wed_hrs, class: 'form-control' %>
+    <% end %>
+
+     <%= f.field_container :thu_hrs do %>
+      <%= f.label :thu_hrs %>
+      <%= f.text_field :thu_hrs, class: 'form-control' %>
+    <% end %>
+    
+  </div>
+
+
+  <br>
+  <div class="col-md-6">
+
+     <%= f.field_container :fri_hrs do %>
+      <%= f.label :fri_hrs %>
+      <%= f.text_field :fri_hrs, class: 'form-control' %>
+    <% end %>
+
+     <%= f.field_container :sat_hrs do %>
+      <%= f.label :sat_hrs %>
+      <%= f.text_field :sat_hrs, class: 'form-control' %>
+    <% end %>
+
+     <%= f.field_container :sun_hrs do %>
+      <%= f.label :sun_hrs %>
+      <%= f.text_field :sun_hrs, class: 'form-control' %>
+    <% end %>
+
+     <%= f.field_container :pub_holiday_hrs do %>
+      <%= f.label :pub_holiday_hrs %>
+      <%= f.text_field :pub_holiday_hrs, class: 'form-control' %>
+    <% end %>
+
+
+
+  </div>
+
+
+
+
+
+
+  <div class="col-md-6">
+    <%= f.field_container :state do %>
+      <%= f.label :state %>
+      <%= f.select :state,
+        options_for_select(Spree::Vendor.state_machines[:state].states.collect { |s| [Spree.t("vendor_states.#{s.name}"), s.value] }, selected: @vendor.state),
+        {}, class: 'select2' %>
+    <% end %>
+  </div>
 </div>
