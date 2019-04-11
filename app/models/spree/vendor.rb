@@ -19,6 +19,8 @@ module Spree
     end
 
 
+    translates  :name ,:about_us, :contact_us, :address,  :email,  :speciality, fallbacks_for_empty_translations: true
+    include SpreeGlobalize::Translatable
 
     has_one_attached :logo_image # one-to-one
 
