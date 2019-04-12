@@ -1,6 +1,6 @@
 <% content_for :page_title do %>
   <%= link_to "My Stores", spree.admin_vendors_url %> /
-  <%= @vendor.name %>
+  <%= @vendor.try(:name) %>
 <% end %>
 
 <%= form_for [:admin, @vendor] do |f| %>
