@@ -10,7 +10,7 @@ Deface::Override.new(
                 <% end %>
                 <% if current_spree_vendor %>
                   <ul class="nav nav-sidebar">
-                    <%= tab "My Profile", url: admin_vendor_settings_path, icon: 'money' %>
+                    <%= tab "My Store", url: admin_vendor_settings_path, icon: 'money' %>
                   </ul>
                 <% end %>
               HTML
