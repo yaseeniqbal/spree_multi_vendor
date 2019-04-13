@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= Spree.t(plural_resource_name(Spree::Vendor)) %>
+  My Stores
 <% end %>
 
 <% content_for :page_actions do %>
@@ -29,7 +29,6 @@
     <% end %>
   </div>
 <% end %>
-
 <% if @vendors.any? %>
   <table class="table">
     <thead>
@@ -74,6 +73,12 @@
           <td class="actions actions-2 text-right">
             <%= link_to_edit vendor, no_text: true, class: 'edit' if can?(:edit, vendor) %>
           </td>
+
+          <% if vendor.persisted? %>
+            <td><%= link_to_with_icon 'translate', nil, spree.admin_translations_path('vendors', vendor.id), title: Spree.t(:'i18n.translations'), class: 'btn btn-sm btn-primary' %>
+          <% end %></td>
+
+
         </tr>
       <% end %>
     </tbody>
