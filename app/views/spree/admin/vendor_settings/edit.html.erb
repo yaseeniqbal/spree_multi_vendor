@@ -183,7 +183,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <% if @vendor.logo_image.attached? %>
-            <%= image_tag(main_app.url_for(@vendor.logo_image.variant(resize: "75x75")))  %>
+            <%= image_tag(main_app.url_for(@vendor.logo_image))  %>
           <% end %>
         </div>
       </div>

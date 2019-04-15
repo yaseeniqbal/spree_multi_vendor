@@ -18,6 +18,7 @@ Deface::Override.new(
   name: 'product status dropdown',
   insert_before: 'div[data-hook="admin_product_form_price"]',
   text: <<-HTML
+          <% if current_spree_user.respond_to?(:has_spree_role?) && current_spree_user.has_spree_role?(:admin) %>
             <div data-hook="admin_product_form_status">
               <%= f.field_container :status, class: ['form-group'] do %>
                 <%= f.label :status, Spree.t(:status) %>
@@ -25,6 +26,11 @@ Deface::Override.new(
                 <%= f.error_message_on :status %>
               <% end %>
             </div>
+          <% else %>
+            <div data-hook="admin_product_form_status">
+              <p><strong>Status:</strong></p> <%= f.object.status.present? ? f.object.status : "" %> %>
+            </div>
+          <% end %>
         HTML
 )
 
