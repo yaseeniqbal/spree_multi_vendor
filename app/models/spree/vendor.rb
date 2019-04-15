@@ -33,7 +33,7 @@ module Spree
     has_many :vendor_users, class_name: 'Spree::VendorUser'
 
     after_create :create_stock_location
-
+    scope :show_to_home, -> {where("to_home=?", "true")}
     state_machine :state, initial: :pending do
       event :activate do
         transition to: :active
