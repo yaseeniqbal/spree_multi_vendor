@@ -3,7 +3,7 @@ module Spree
     before_action :set_spree_vendor, only: [:show]
 
     def index
-      @stores = Spree::Vendor.all
+      @stores = Spree::Vendor.approved
     end
 
     def show
