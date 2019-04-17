@@ -28,22 +28,24 @@ Deface::Override.new(
             </div>
           <% else %>
             <div data-hook="admin_product_form_status">
-              <p><strong>Status:</strong></p> <%= f.object.status.present? ? f.object.status : "" %> %>
+              <p><strong>Status:</strong><%= f.object.status.present? ? f.object.status : "" %></p>
             </div>
           <% end %>
         HTML
 )
-
-
 
 Deface::Override.new(
   virtual_path: 'spree/admin/products/_form',
   name: 'Add vendor select in product form',
   insert_before: 'div[data-hook="admin_product_form_price"]',
   text: <<-HTML
-          <% if current_spree_user.respond_to?(:has_spree_role?) && current_spree_user.has_spree_role?(:admin) %>
-            <%= f.field_container :vendor_id, class: ['form-group'] do %>
-              <%= f.collection_select(:vendor_id, Spree::Vendor.all, :id, :name, {:include_blank => 'Assign Vendor'}, { class: 'select2'}) %>
+          <% if current_spree_user.respond_to?(:has_spree_role?) && current_spree_user.has_spree_role?(:admin)  %>
+            <% if f.object.vendor.blank? %>
+              <%= f.field_container :vendor_id, class: ['form-group'] do %>
+                <%= f.collection_select(:vendor_id, Spree::Vendor.all, :id, :name, {:include_blank => 'Assign Vendor'}, { class: 'select2'}) %>
+              <% end %>
+            <% else %>
+              <p><strong>Store Name: </strong><%= f.object.vendor.present? ? f.object.vendor.name : "" %></p>
             <% end %>
           <% end %>
         HTML
