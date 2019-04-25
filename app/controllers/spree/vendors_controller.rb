@@ -7,11 +7,12 @@ module Spree
     end
 
     def show
+
     end
 
     private
       def set_spree_vendor
-        @store = Spree::Vendor.find(params[:id])
+        @store = Spree::Vendor.friendly.find(params[:id])
       end
   end
 end
