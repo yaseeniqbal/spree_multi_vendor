@@ -17,7 +17,7 @@
         <div class="form-group">
           <%= f.field_container :name do %>
             <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control', required: true %>
+            <%= f.text_field :name, class: 'form-control' %>
           <% end %>
         </div>
         <div class="form-group">
@@ -27,15 +27,39 @@
           <% end %>
         </div>
         <div class="form-group">
-          <%= f.field_container :contact_us do %>
-            <%= f.label :contact_us %>
-            <%= f.number_field :contact_us, class: 'form-control', required: true %>
+          <%= f.field_container :about_us do %>
+            <%= f.label 'Short Description' %>
+            <%= f.text_area :description, class: 'form-control' %>
           <% end %>
         </div>
         <div class="form-group">
           <%= f.field_container :address do %>
-            <%= f.label :address %>
-            <%= f.text_field :address, class: 'form-control', required: true %>
+            <%= f.label :address1 %>
+            <%= f.text_field :address, class: 'form-control' %>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.field_container :address2 do %>
+            <%= f.label :address2 %>
+            <%= f.text_field :address2, class: 'form-control' %>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.field_container :address3 do %>
+            <%= f.label :address3 %>
+            <%= f.text_field :address3, class: 'form-control' %>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.field_container :address4 do %>
+            <%= f.label :address4 %>
+            <%= f.text_field :address4, class: 'form-control' %>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.field_container :contact_us do %>
+            <%= f.label :contact_us %>
+            <%= f.number_field :contact_us, class: 'form-control' %>
           <% end %>
         </div>
       </div>
@@ -51,25 +75,42 @@
         <div class="form-group">
           <%= f.field_container :speciality do %>
             <%= f.label :speciality %> (Write it down in Comma Seperated formate eg: "Formal Abaya", "Stiched")
-            <%= f.text_field :speciality, class: 'form-control', required: true %>
+            <%= f.text_field :speciality, class: 'form-control' %>
           <% end %>
         </div>
 
         <div class="form-group">
           <%= f.field_container :travel_distance do %>
             <%= f.label :travel_distance %>
-            <%= f.number_field :t_distance, class: 'form-control', required: true %>
+            <%= f.number_field :t_distance, class: 'form-control' %>
           <% end %>
         </div>
 
+        <br>
         <div class="form-group">
           <%= f.field_container :google_address_url do %>
-            <%= f.label :store_pin_location %> (Google Url)
+            <%= f.label :store_pin_location1 %> (Google Url)
             <%= f.text_field :google_address_url, class: 'form-control' %>
           <% end %>
         </div>
-
-
+        <div class="form-group">
+          <%= f.field_container :google_address2_url do %>
+            <%= f.label :store_pin_location2 %> (Google Url)
+            <%= f.text_field :google_address2_url, class: 'form-control' %>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.field_container :google_address3_url do %>
+            <%= f.label :store_pin_location3 %> (Google Url)
+            <%= f.text_field :google_address3_url, class: 'form-control' %>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.field_container :google_address4_url do %>
+            <%= f.label :store_pin_location4 %> (Google Url)
+            <%= f.text_field :google_address4_url, class: 'form-control' %>
+          <% end %>
+        </div>
 
       </div>
     </div>
@@ -95,7 +136,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <%= f.field_container :twitter_lnk do %>
-            <%= f.label :twitter_lnk %>
+            <%= f.label 'Instagram Link' %>
             <%= f.text_field :twitter_lnk, class: 'form-control' %>
           <% end %>
         </div>
@@ -115,27 +156,27 @@
         <div class="form-group">
            <%= f.field_container :mon_hrs do %>
             <%= f.label :monday_hours %>
-            <%= f.text_field :mon_hrs, class: 'form-control', required: true %>
+            <%= f.text_field :mon_hrs, class: 'form-control' %>
           <% end %>
         </div>
 
         <div class="form-group">
            <%= f.field_container :tue_hrs do %>
             <%= f.label :tuesday_hours %>
-            <%= f.text_field :tue_hrs, class: 'form-control', required: true %>
+            <%= f.text_field :tue_hrs, class: 'form-control' %>
           <% end %>
         </div>
         <div class="form-group">
            <%= f.field_container :wed_hrs do %>
             <%= f.label :wednesday_hours %>
-            <%= f.text_field :wed_hrs, class: 'form-control', required: true %>
+            <%= f.text_field :wed_hrs, class: 'form-control' %>
           <% end %>
         </div>
 
         <div class="form-group">
           <%= f.field_container :thu_hrs do %>
             <%= f.label :thursday_hours %>
-            <%= f.text_field :thu_hrs, class: 'form-control', required: true %>
+            <%= f.text_field :thu_hrs, class: 'form-control'%>
           <% end %>
         </div>
       </div>
@@ -144,27 +185,27 @@
         <div class="form-group">
           <%= f.field_container :fri_hrs do %>
             <%= f.label :friday_hours %>
-            <%= f.text_field :fri_hrs, class: 'form-control', required: true %>
+            <%= f.text_field :fri_hrs, class: 'form-control' %>
           <% end %>
         </div>
 
         <div class="form-group">
           <%= f.field_container :sat_hrs do %>
             <%= f.label :saturday_hours %>
-            <%= f.text_field :sat_hrs, class: 'form-control', required: true %>
+            <%= f.text_field :sat_hrs, class: 'form-control' %>
           <% end %>
         </div>
 
         <div class="form-group">
           <%= f.field_container :sun_hrs do %>
             <%= f.label :sunday_hours %>
-            <%= f.text_field :sun_hrs, class: 'form-control', required: true %>
+            <%= f.text_field :sun_hrs, class: 'form-control' %>
           <% end %>
         </div>
         <div class="form-group">
           <%= f.field_container :pub_holiday_hrs do %>
             <%= f.label :public_holiday_hours %>
-            <%= f.text_field :pub_holiday_hrs, class: 'form-control', required: true %>
+            <%= f.text_field :pub_holiday_hrs, class: 'form-control' %>
           <% end %>
         </div>
       </div>
@@ -176,7 +217,7 @@
         <div class="form-group">
           <%= f.field_container :logo_image do %>
             <%= f.label :logo %>
-            <%= f.file_field :logo_image , class: 'form-control' , required: true%>
+            <%= f.file_field :logo_image , class: 'form-control'%>
           <% end %>
         </div>
       </div>

@@ -39,6 +39,22 @@ Deface::Override.new(
 )
 
 Deface::Override.new(
+    virtual_path: 'spree/admin/products/_form',
+    name: 'product standard status dropdown',
+    insert_after: 'div[data-hook="admin_product_form_price"]',
+    text: <<-HTML
+            <div data-hook="admin_product_form_standard_status">
+                <%= f.field_container :standard_status, class: ['form-group'] do %>
+                        <%= f.label :standard_status, Spree.t(:standard_status) %>
+                        <%= select_tag "product[standard_status]", options_for_select(::Spree::Product.standard_statuses.map{|k,v| [k.humanize,k] },f.object.standard_status), :prompt => "Please select", class: 'select2' %>
+                        <%= f.error_message_on :standard_status %>
+                <% end %>
+            </div>
+HTML
+)
+
+
+Deface::Override.new(
   virtual_path: 'spree/admin/products/_form',
   name: 'Add vendor select in product form',
   insert_before: 'div[data-hook="admin_product_form_price"]',

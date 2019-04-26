@@ -16,15 +16,39 @@
       <% end %>
     </div>
     <div class="form-group">
-      <%= f.field_container :contact_us do %>
-        <%= f.label :contact_us %>
-        <%= f.number_field :contact_us, class: 'form-control' %>
+      <%= f.field_container :about_us do %>
+        <%= f.label 'Short Description' %>
+        <%= f.text_area :description, class: 'form-control' %>
       <% end %>
     </div>
     <div class="form-group">
       <%= f.field_container :address do %>
-        <%= f.label :address %>
+        <%= f.label :address1 %>
         <%= f.text_field :address, class: 'form-control' %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.field_container :address2 do %>
+        <%= f.label :address2 %>
+        <%= f.text_field :address2, class: 'form-control' %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.field_container :address3 do %>
+        <%= f.label :address3 %>
+        <%= f.text_field :address3, class: 'form-control' %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.field_container :address4 do %>
+        <%= f.label :address4 %>
+        <%= f.text_field :address4, class: 'form-control' %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.field_container :contact_us do %>
+        <%= f.label :contact_us %>
+        <%= f.number_field :contact_us, class: 'form-control' %>
       <% end %>
     </div>
 
@@ -51,14 +75,31 @@
         <%= f.number_field :t_distance, class: 'form-control' %>
       <% end %>
     </div>
-
+    <br>
     <div class="form-group">
       <%= f.field_container :google_address_url do %>
-        <%= f.label :store_pin_location %> (Google Url)
+        <%= f.label :store_pin_location1 %> (Google Url)
         <%= f.text_field :google_address_url, class: 'form-control' %>
       <% end %>
     </div>
-
+    <div class="form-group">
+      <%= f.field_container :google_address2_url do %>
+        <%= f.label :store_pin_location2 %> (Google Url)
+        <%= f.text_field :google_address2_url, class: 'form-control' %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.field_container :google_address3_url do %>
+        <%= f.label :store_pin_location3 %> (Google Url)
+        <%= f.text_field :google_address3_url, class: 'form-control' %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.field_container :google_address4_url do %>
+        <%= f.label :store_pin_location4 %> (Google Url)
+        <%= f.text_field :google_address4_url, class: 'form-control' %>
+      <% end %>
+    </div>
 
 
   </div>
@@ -85,7 +126,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <%= f.field_container :twitter_lnk do %>
-        <%= f.label :twitter_lnk %>
+        <%= f.label 'Instagram Link' %>
         <%= f.text_field :twitter_lnk, class: 'form-control' %>
       <% end %>
     </div>
