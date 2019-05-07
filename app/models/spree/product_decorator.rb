@@ -3,7 +3,8 @@ Spree::Product.class_eval do
   self.whitelisted_ransackable_associations += %w[vendor]
 
   enum status: [ :draft, :approved ]
-  enum standard_status: [ :exclusive ]
+  enum standard_status: [ :exclusive, :new ], _prefix: :product
+  
   ransacker :status, formatter: proc {|v| statuses[v]}
 
 
@@ -12,5 +13,5 @@ Spree::Product.class_eval do
   scope :without_standard, ->{where(standard_status: nil)}
   scope :is_standard, ->{where.not(standard_status: nil)}
 
-
+  scope :not_exclusive, ->{where.not(standard_status: 'exclusive')}
 end
