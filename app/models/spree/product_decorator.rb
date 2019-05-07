@@ -8,4 +8,9 @@ Spree::Product.class_eval do
 
 
   scope :in_stock, ->{joins(:master => :prices, variants_including_master: :stock_items).where("spree_stock_items.count_on_hand >? AND spree_products.available_on <?",0,Time.now)}
+  
+  scope :without_standard, ->{where("standard_status=?", nil)}
+  scope :is_standard, ->{where.not(standard_status: nil)}
+
+
 end
