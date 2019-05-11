@@ -3,7 +3,13 @@ module Spree
     before_action :set_spree_vendor, only: [:show]
 
     def index
-      @stores = Spree::Vendor.approved
+      if params[:keywords].present?
+        params[:q] = {name_cont: params[:keywords]}
+        @q = Spree::Vendor.ransack(params[:q])
+        @stores = @q.result(distinct: true).approved
+      else
+        @stores = Spree::Vendor.approved
+      end
     end
 
     def show
