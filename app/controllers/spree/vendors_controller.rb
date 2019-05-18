@@ -13,7 +13,7 @@ module Spree
     end
 
     def show
-
+      @store_products = @store.products.in_stock.approved
     end
 
     private
