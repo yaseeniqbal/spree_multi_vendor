@@ -40,6 +40,22 @@ Deface::Override.new(
 
 Deface::Override.new(
     virtual_path: 'spree/admin/products/_form',
+    name: 'product placement status dropdown',
+    insert_before: 'div[data-hook="admin_product_form_price"]',
+    text: <<-HTML
+            <div data-hook="admin_product_form_placement_status">
+                <%= f.field_container :placement_status, class: ['form-group'] do %>
+                        <%= f.label :placement_status, Spree.t(:placement_status) %>
+                        <%= select_tag "product[placement_status]", options_for_select(::Spree::Product.placement_statuses.map{|k,v| [k.humanize,k] },f.object.placement_status), :prompt => "Please select Product Possition", class: 'select2' %>
+                        <%= f.error_message_on :placement_status %>
+                <% end %>
+            </div>
+HTML
+)
+
+
+Deface::Override.new(
+    virtual_path: 'spree/admin/products/_form',
     name: 'product standard status dropdown',
     insert_after: 'div[data-hook="admin_product_form_price"]',
     text: <<-HTML
