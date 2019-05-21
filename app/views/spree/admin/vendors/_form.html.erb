@@ -242,6 +242,23 @@
   </div>
 </div>
 
+<div class="col-md-12">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.field_container :details_logo_image do %>
+        <%= f.label :details_logo_image %>
+        <%= f.file_field :details_logo_image , class: 'form-control' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <% if @vendor.details_logo_image.attached? %>
+        <%= image_tag(main_app.url_for(@vendor.details_logo_image))  %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
   <%#= f.field_container :lat do %>
     <%#= f.label :lat %>

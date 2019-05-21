@@ -25,7 +25,7 @@ module Spree
     include SpreeGlobalize::Translatable
 
     has_one_attached :logo_image # one-to-one
-
+    has_one_attached :details_logo_image
     has_many :orders
     has_many :products
     has_many :shipping_methods, class_name: "Spree::ShippingMethod"
