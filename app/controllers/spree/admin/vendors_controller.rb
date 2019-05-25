@@ -14,7 +14,8 @@ module Spree
 
         @collection = @search.result.
                       page(params[:page]).
-                      per(params[:per_page])
+                      per(params[:per_page]).uniq
+
       end
     end
   end
