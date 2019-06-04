@@ -9,6 +9,10 @@ Spree::Order.class_eval do
     self.class.new(attributes.except('id', 'number', 'updated_at', 'created_at'))
   end
 
+  def is_parent?
+    parent_order_id.blank?
+  end
+
   def split_with_splitter!
     Spree::OrderSplitter.new(self).split!
   end
