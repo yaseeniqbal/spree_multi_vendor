@@ -15,6 +15,10 @@ module Spree
     def show
       @store_products = @store.products.in_stock.approved
     end
+    def get_store_products
+      @products = Spree::Vendor.friendly.find(params[:id]).products.approved.in_stock
+      @title = params[:id]
+    end
 
     private
       def set_spree_vendor
