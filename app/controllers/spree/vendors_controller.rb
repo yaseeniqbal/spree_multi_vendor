@@ -17,7 +17,7 @@ module Spree
     end
     def get_store_products
       store = Spree::Vendor.friendly.find(params[:id])
-      @products = store.products.approved.in_stock
+      @products = store.products.approved.in_stock.distinct
       @title = store.name
     end
 
