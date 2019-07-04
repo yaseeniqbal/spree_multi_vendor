@@ -19,6 +19,9 @@ module Spree
       store = Spree::Vendor.friendly.find(params[:id])
       @products = store.products.approved.in_stock.distinct
       @title = store.name
+      if params[:store_slug].present?
+        @store_slug = params[:store_slug]
+      end
     end
 
     private
