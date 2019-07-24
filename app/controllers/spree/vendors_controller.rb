@@ -29,10 +29,11 @@ module Spree
         per_page = @searcher.properties[:per_page]
         page = @searcher.properties[:page]
         curr_page = page || 1
-        @products = store.products.page(curr_page).per(per_page).approved.in_stock.distinct
+        @products = store.products.page(curr_page).per(per_page).viewable.distinct
       else
-        @products = store.products.approved.in_stock.distinct
+        @products = store.products.viewable.distinct
       end
+      @p_count = @products.count
       @title = store.name
       if params[:store_slug].present?
         @store_slug = params[:store_slug]
