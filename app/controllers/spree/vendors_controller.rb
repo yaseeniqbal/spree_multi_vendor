@@ -2,7 +2,7 @@ module Spree
   class VendorsController < Spree::StoreController
     before_action :set_spree_vendor, only: [:show]
 
-    def index
+     def index
       @searcher = build_searcher(params.merge(include_images: true))
       @stores = @searcher.retrieve_vendors
       if params[:keywords].present?
