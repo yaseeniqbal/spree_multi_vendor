@@ -38,6 +38,11 @@ module Spree
       if params[:store_slug].present?
         @store_slug = params[:store_slug]
       end
+
+      respond_to do |format|
+        format.js
+        format.html
+      end
     end
 
     private
