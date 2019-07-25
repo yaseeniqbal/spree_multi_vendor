@@ -6,7 +6,7 @@ require 'spree_multi_vendor/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_dev_multi_vendor'
+  s.name        = 'spree_multi_vendor'
   s.version     = SpreeMultiVendor.version
   s.summary     = 'Spree multi vendor marketplace extension'
   s.description = 'Spree multi vendor marketplace extension'
