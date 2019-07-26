@@ -10,7 +10,12 @@ module Spree
                          # .page(curr_page).per(per_page)
         @q = @stores.ransack(params[:q])
         @stores = @q.result(distinct: true)
-      # else
+
+        @available_products = params[:available_products].present? ? params[:available_products] : false
+        @available_stores = true
+        @available_categories = params[:available_categories].present? ? params[:available_categories] : false
+
+        # else
       #   @stores = Spree::Vendor.approved
       end
       respond_to do |format|
