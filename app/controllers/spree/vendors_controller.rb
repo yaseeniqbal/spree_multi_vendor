@@ -4,14 +4,14 @@ module Spree
 
      def index
       @searcher = build_searcher(params.merge(include_images: true))
-      @stores = @searcher.retrieve_vendors.sort_by{|v| v.name}
+      @stores = @searcher.retrieve_vendors
 
       if params[:keywords].present?
         params[:q] = {name_cont: params[:keywords]}
                          # .page(curr_page).per(per_page)
         @q = @stores.ransack(params[:q])
         @stores = @q.result(distinct: true)
-
+        @stores = @stores.sort_by{|v| v.name}
         @available_products = params[:available_products].present? ? params[:available_products] : false
         @available_stores = true
         @available_categories = params[:available_categories].present? ? params[:available_categories] : false
