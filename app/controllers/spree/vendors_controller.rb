@@ -4,7 +4,7 @@ module Spree
 
      def index
       @searcher = build_searcher(params.merge(include_images: true))
-      @stores = @searcher.retrieve_vendors.sort_by{|v| v.name}.reverse
+      @stores = @searcher.retrieve_vendors.sort_by{|v| v.name}
 
       if params[:keywords].present?
         params[:q] = {name_cont: params[:keywords]}
