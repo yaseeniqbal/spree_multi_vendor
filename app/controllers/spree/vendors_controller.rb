@@ -16,8 +16,8 @@ module Spree
         @available_stores = true
         @available_categories = params[:available_categories].present? ? params[:available_categories] : false
 
-        # else
-      #   @stores = Spree::Vendor.approved
+      else
+          @stores = @stores.sort_by{|v| v.name}
       end
       respond_to do |format|
         format.js
