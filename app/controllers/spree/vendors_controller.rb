@@ -5,6 +5,7 @@ module Spree
      def index
       @searcher = build_searcher(params.merge(include_images: true))
       @stores = @searcher.retrieve_vendors
+      @params = params
 
       if params[:keywords].present?
         params[:q] = {name_cont: params[:keywords]}
@@ -30,6 +31,8 @@ module Spree
     end
     def get_store_products
       store = Spree::Vendor.friendly.find(params[:id])
+      params[:vendor_id] = store.try(:id)
+      @store_id          = store.try(:id)
       @searcher = build_searcher(params.merge(include_images: true))
       if @searcher.properties
         per_page = @searcher.properties[:per_page]
