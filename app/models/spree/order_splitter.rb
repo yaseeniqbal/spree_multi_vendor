@@ -14,6 +14,8 @@ module Spree
         create_line_items(vendor_order, variants.map(&:id))
         vendor_order.create_proposed_shipments
         vendor_order.update_with_updater!
+        vendor_order.shipments.update(cost: 0.to_d)
+        vendor_order.update(shipment_total: 0.to_d)
       end
     end
 
