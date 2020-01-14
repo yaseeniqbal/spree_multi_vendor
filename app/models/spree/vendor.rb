@@ -37,7 +37,7 @@ module Spree
     
     scope :from_collection, -> (vendors_arr) {where("spree_vendors.id IN (?)", vendors_arr)}
     scope :available_vendors, -> {pluck(:id, :name)}
-
+    has_many :orders
     has_many :users, through: :vendor_users
 
     after_create :create_stock_location
