@@ -15,7 +15,6 @@ module Spree
             format.html { redirect_to spree.admin_vendors_path }
           end
         else
-          flash[:error] = @vendor.errors.full_messages.join(",")
           respond_to do |format|
             format.js
             format.html { redirect_to spree.admin_vendors_url }
@@ -35,7 +34,6 @@ module Spree
             format.html { redirect_to spree.admin_vendors_path }
           end
         else
-          flash[:error] = @vendor.errors.full_messages.join(",")
           respond_to do |format|
             format.js
             format.html { redirect_to spree.admin_vendors_url }
