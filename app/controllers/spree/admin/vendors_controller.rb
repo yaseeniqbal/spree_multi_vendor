@@ -3,7 +3,6 @@ module Spree
   class VendorsController < ResourceController
 
       def create
-        super
         if permitted_resource_params[:image] && Spree.version.to_f >= 3.6
           @vendor.build_image(attachment: permitted_resource_params.delete(:image))
         end
