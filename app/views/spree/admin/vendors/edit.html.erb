@@ -6,7 +6,7 @@
   <%= @vendor.name %>
 <% end %>
 
-<%= form_for [:admin, @vendor] do |f| %>
+<%= form_for [:admin, @vendor], remote: true do |f| %>
   <fieldset>
     <%= render partial: 'form', locals: { f: f } %>
     <%= render partial: 'spree/admin/shared/edit_resource_links' %>

@@ -1,12 +1,27 @@
 module Spree
   module Admin
-    class VendorsController < ResourceController
+  class VendorsController < ResourceController
 
       def create
+        super
         if permitted_resource_params[:image] && Spree.version.to_f >= 3.6
           @vendor.build_image(attachment: permitted_resource_params.delete(:image))
         end
         super
+
+        if @vendor.save
+          flash[:notice] = "Vendor successfully created"
+          respond_to do |format|
+            format.js   
+            format.html { redirect_to spree.admin_vendors_path }
+          end
+        else
+          flash[:error] = @vendor.errors.full_messages.join(",")
+          respond_to do |format|
+            format.js
+            format.html { redirect_to spree.admin_vendors_url }
+          end
+        end
       end
 
       def update
@@ -14,6 +29,19 @@ module Spree
           @vendor.create_image(attachment: permitted_resource_params.delete(:image))
         end
         super
+        if @vendor.save
+          flash[:notice] = "Vendor successfully updated"
+          respond_to do |format|
+            format.js   
+            format.html { redirect_to spree.admin_vendors_path }
+          end
+        else
+          flash[:error] = @vendor.errors.full_messages.join(",")
+          respond_to do |format|
+            format.js
+            format.html { redirect_to spree.admin_vendors_url }
+          end
+        end
       end
 
       def update_positions
